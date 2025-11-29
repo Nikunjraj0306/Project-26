@@ -1,3 +1,13 @@
+/*Making a password and text encryptor
+Same concept we learned in Cybersecurity---> data--->while sending--->using key--->gets encrypted
+key would be first letter of password in ascii number...and that key will be further operator with text
+in loop using XOR operator and generate encrypted text...
+*/
+
+#include<stdio.h>
+#include<string.h>
+
+
 // START for Encryption Decryption Section(Priyal)
 
 int secrets(char *text,char *password){    //we want text to be encrypted using password
@@ -16,6 +26,15 @@ int secrets(char *text,char *password){    //we want text to be encrypted using 
 
 //END for Encryption and Decryption Section
 
+//now whatever text wee input, that text will be encrypted using this algorithm
+//but we have to take the password and input text from the user in our creating function...
+
+/* There will be 4 functions according to our project:
+    1. Create file(encryption + writing data)
+    2. Read File(decryption + reading data)
+    3. Deleting File
+    4. Exit
+*/
 
 //START for File Creation Section(Akhil)
 
@@ -49,15 +68,44 @@ void filecreation(){
 //END for File Creation Section
 
 
+//START for File Opening and Reading Section(Nikunj)
+
+void fileopening(){
+    char filename[50];
+    scanf("%49s",filename);
+
+    char openingpassword[50];
+    scanf("%49s",openingpassword);
+
+    /* wee now have to get the encrypted data and convert iit back into the string and again applly
+       encryption decrytion to finallly get the original text but we this decryption would have to succefully 
+       happen only when wee enter the right password for the file, otherwise it should not give the originall data...
+    */
+    FILE *fptr=fopen(filename,"r");
+
+    //to decrypt the encrypted text in the file...wee must have to get the encrypted data first
+    char encryptedtext[300];
+    gets(encryptedtext,fptr);
+
+    secrets(encryptedtext,openingpassword);
+    //now we have converted the encrypted text back into the original text using the encryption decryption function
+    printf("%s",encryptedtext);
+}
+
+
+//END for File Opening and Reading Section
+
+
+//START for File Deletion Section(Archit)
 
 
 
 
+//END for File Deletion Section
+
+
+//START for MENU Creation for the user
 
 
 
-
-
-
-
-
+//END for MENU creation for the user
