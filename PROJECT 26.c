@@ -136,7 +136,7 @@ void deletingfile(){
     strcat(filename,".txt");
 
     if (remove(filename)==0){
-        printf("file is successfully deleted.");
+        printf("File is successfully deleted.");
     }
     else{
         printf("Could not remove file.");
@@ -163,7 +163,7 @@ int main (){
             case 1: filecreation(); break;
             case 2: fileopening(); break;
             case 3: deletingfile(); break;
-            case 4: return 0;
+            case 4: printf("Bye Bye!!!"); return 0;
             default: printf("Invalid Input");
         }
     }
