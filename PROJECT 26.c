@@ -125,18 +125,19 @@ void fileopening(){
 //START for File Deletion Section
 void deletingfile(){
     ///file name for deletion 
-    chr nameoffile[50];
-    printf("enter the name of the File :")
-    scanf("%49s",nameoffile);
+    chr filename[50];
+    printf("Enter the name of the File :")
+    scanf("%49s",filename);
 
-    strcat(nameoffile,'.txt');
+    strcat(filename,".txt");
 
-    if (remove(nameoffile)==0){
-        printf("file removed.");
-    }else{
-        printf("Could not remove file.");
-         }
+    if (remove(filename)==0){
+        printf("file is successfully deleted.");
     }
+    else{
+        printf("Could not remove file.");
+    }
+}
 
 //END for File Deletion Section
 
@@ -145,10 +146,12 @@ void deletingfile(){
 int main (){
 
     while(1){
-        printf('\n welcome to our file locker');
-        printf("1.create and save the file \n");
-        printf("2.delete file\n");
-        printf("3.Exit \n");
+        printf("\nWelcome to our File Locker\n");
+        printf("Enter (1 /2 /3 /4):\n");
+        printf("1. Create and Save the File\n");
+        printf("2. Read File\n");
+        printf("3. Delete File\n");
+        printf("4. Exit\n");
     
         int select;
         scanf("%d",&select);
