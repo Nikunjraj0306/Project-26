@@ -96,30 +96,33 @@ void fileopening(){
 //END for File Opening and Reading Section
 
 
-//START for File Deletion Section(Archit)
-
-
-
-
-//END for File Deletion Section
-
-
-//START for MENU Creation for the user
-
-
-
-//END for MENU creation for the user
+//START for File Deletion Section
 void deletingfile(){
     ///file name for deletion 
-    chr nameoffile[100];
-    printf('enter the name of the File : ')
-    scanf("%49s",filename);
+    chr nameoffile[50];
+    printf("enter the name of the File :")
+    scanf("%49s",nameoffile);
+
+    strcat(nameoffile,'.txt');
 
     if (remove(nameoffile)==0){
-        printf("Could not remove the file.");
-    }{
+        printf("file removed.");
+    }else{
         printf("Could not remove file.");
          }
     }
 
+//END for File Deletion Section
+
+//START for MENU Creation for the user
+
+int main (){
+    printf('\n welcome to our file locker');
+    printf("1.create and save the file \n");
+    printf("2.delete file\n");
+    printf("3.Exit \n");
+    
+}
+
+//END for MENU creation for the user
 
