@@ -42,27 +42,35 @@ void filecreation(){
     //requirements needed--- filename; encryption function will bee written here so we can encrypt 
     //our file at the of making, this will requirement text & password.
     char filename[50];
-
-    scanf("%49s",password);
+    printf("Enter the name of file;");
+    scanf("%49s",filename);
+    
     strcat(filename,".text");
     
     char password[50];
+    printf("Set up the password for your file:");
     scanf("%49s",password);  // we have selected 49 bcz of null operator added to the string
+    getchar();
     
     char text[300];
+    
     printf("enter the text to save in the file:");
     fgets(text,sizeof(text),stdin);
+    //to remove newline at the end we use string function strcspn
+    text[strcspn(text,"\n")]='\0,;
     
     //now the function we have made for encryption comes
-    
     secrets(text,password);
     //now text is encrypted...and we have to store in a file
     //named filename(input already taken from user)
+    
     //file handling: writing file
     
     File *fptr=fopen(filename,"W");
-    fprintf(fptr,"%s");
-    printf("File secured successfully.\n");
+    fprintf(fptr,"%s",text);
+    fclose(fptr);
+    
+   
 }
 
 //END for File Creation Section
