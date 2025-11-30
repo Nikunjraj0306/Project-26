@@ -24,6 +24,7 @@
 
 --------------------------------------------------------------------ALGORITHM-----------------------------------------------------------------------------
 
+**Priyal**- Encryption and Decryption(secrets)
 1. Start the function with two inputs:
    - the text we want to protect,
    - and the password chosen by the user
@@ -43,6 +44,34 @@
 6. Continue until the end of the string is reached.
   
 7. End the function and return ack to the caller.
+
+
+**Akhil** – File Creation & Saving Encrypted Text
+1.	Start the file creation process.
+
+2.	Ask the user for a filename.
+    After reading it, attach “.txt” to make it a complete text-file name.
+
+3.	Ask the user to enter a password, which will later be required to decrypt the file.
+
+4.	Ask the user to type the actual message they want to secure.
+    -Read the complete line of text.
+
+5.	Remove any extra newline character that gets added when reading input.
+
+6.	Call Priyal’s encryption function to convert the user’s message into an encrypted form.
+
+7.	Try opening the file in write mode.
+   - If it fails, show an error message and stop the process.
+   - If the file opens properly, write the encrypted text into it.
+
+9.	Close the file safely.
+
+10.	Show a confirmation message telling the user that the file has been successfully locked and saved.
+
+11.	End the function.
+
+
 
 
 
