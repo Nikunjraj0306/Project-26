@@ -72,6 +72,65 @@
 11.	End the function.
 
 
+**Nikunj** – File Opening & Decrypting Function
+1.	Begin by asking the user which file they want to open.
+    After receiving the name, add “.txt” to it.
+2.	Ask the user for the password that was originally used to lock the file.
+
+3.	Try to open the file in read mode.
+    - If the file doesn’t exist, show “File not found” and stop.
+
+4.	If the file opens correctly, read the encrypted content stored inside.
+
+5.	Close the file.
+
+6.	Send the encrypted text along with the entered password to Priyal’s encryption/decryption function.
+    - If the password is correct, the text will return to readable form.
+    - If the password is wrong, the output will be meaningless characters.
+
+7.	Display the decrypted content on the screen.
+
+8.	End the function.
+
+
+**Archit** – File Deletion & Main Menu Control
+1.	Ask the user for the name of the file they want to remove.
+
+2.	Add “.txt” to make it a complete filename.
+
+3.	Use the system’s delete command to remove that file.
+
+4.	If deletion succeeds, show a message saying the file was successfully removed.
+    - Otherwise, show an error message.
+
+5.	End the delete function.
+
+-------------------------------------------
+
+1.	Start the main program.
+
+2.	Keep the program running in a loop so the user can perform multiple operations.
+
+3.	Display a simple menu with four choices:
+    - Create & Save a File
+    - Read a File
+    - Delete a File
+    - Exit
+
+4.	Read the user’s input.
+
+5.	Based on the user’s selection:
+    - If they choose 1, call Akhil’s file creation function.
+    - If they choose 2, call Nikunj’s file opening function.
+    - If they choose 3, call Archit’s file delete function.
+    - If they choose 4, exit the program completely.
+    - For any invalid input, show an error message.
+
+6.	Loop back to show the menu again until the user decides to exit.
+
+7.	End the program.
+
+
 
 
 
