@@ -109,3 +109,17 @@ void fileopening(){
 
 
 //END for MENU creation for the user
+void deletingfile(){
+    ///file name for deletion 
+    chr nameoffile[100];
+    printf('enter the name of the File : ')
+    scanf("%49s",filename);
+
+    if (remove(nameoffile)==0){
+        printf("Could not remove the file.");
+    }{
+        printf("Could not remove file.");
+         }
+    }
+
+
