@@ -19,8 +19,8 @@ int secrets(char *text,char *password){    //we want text to be encrypted using 
     int key =(password[0]%200)+30; //this type of Ascii value of pass will not 
                                   //match any text in the letter...
 
-    if(key==0 ){//this is the correction 
-        key==1;//for an empty password...
+    if(key==0){//this is the correction 
+        key=1;//for an empty password...
     }
 
     int i;
@@ -28,8 +28,7 @@ int secrets(char *text,char *password){    //we want text to be encrypted using 
     for(i=0;text[i]!='\0';i++){
         text[i]^=key;
     }
-    
-    return 0;
+    return 0;
 }
 
 //END for Encryption and Decryption Section
@@ -50,22 +49,23 @@ void filecreation(){
     //requirements needed--- filename; encryption function will bee written here so we can encrypt 
     //our file at the of making, this will requirement text & password.
     char filename[50];
-    printf("Enter the name of file;");
+    printf("Enter the name of file:");
     scanf("%49s",filename);
     
-    strcat(filename,".text");
+    strcat(filename,".txt");
     
     char password[50];
+    
     printf("Set up the password for your file:");
     scanf("%49s",password);  // we have selected 49 bcz of null operator added to the string
     getchar();
     
     char text[300];
     
-    printf("enter the text to save in the file:");
+    printf("Enter the text to save in the file:");
     fgets(text,sizeof(text),stdin);
     //to remove newline at the end we use string function strcspn
-    text[strcspn(text,"\n")]='\0,;
+    text[strcspn(text,"\n")]='\0';
     
     //now the function we have made for encryption comes
     secrets(text,password);
@@ -74,9 +74,11 @@ void filecreation(){
     
     //file handling: writing file
     
-    File *fptr=fopen(filename,"W");
+    FILE *fptr=fopen(filename,"w");
+    
     fprintf(fptr,"%s",text);
     fclose(fptr);
+    
     printf("File secured successfully.\n");
     printf("Dont't forget the password.");
 }
@@ -91,8 +93,10 @@ void fileopening(){
     printf("Enter the name of file to open:");
     scanf("%49s",filename);
 
+    strcat(filename,".txt");
+    
     char openingpassword[50];
-    printf("Enter the decrypting password");
+    printf("Enter the decrypting password:");
     scanf("%49s",openingpassword);
 
     /* wee now have to get the encrypted data and convert iit back into the string and again applly
@@ -125,8 +129,8 @@ void fileopening(){
 //START for File Deletion Section
 void deletingfile(){
     ///file name for deletion 
-    chr filename[50];
-    printf("Enter the name of the File :")
+    char filename[50];
+    printf("Enter the name of the File :");
     scanf("%49s",filename);
 
     strcat(filename,".txt");
