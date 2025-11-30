@@ -88,9 +88,11 @@ void filecreation(){
 
 void fileopening(){
     char filename[50];
+    printf("Enter the name of file to open:");
     scanf("%49s",filename);
 
     char openingpassword[50];
+    printf("Enter the decrypting password");
     scanf("%49s",openingpassword);
 
     /* wee now have to get the encrypted data and convert iit back into the string and again applly
@@ -98,14 +100,22 @@ void fileopening(){
        happen only when wee enter the right password for the file, otherwise it should not give the originall data...
     */
     FILE *fptr=fopen(filename,"r");
-
+    if(fptr==NULL){
+        printf("File not found...Try Again!!!");
+        return;
+    }
+    
     //to decrypt the encrypted text in the file...wee must have to get the encrypted data first
     char encryptedtext[300];
-    gets(encryptedtext,fptr);
+    fgets(encryptedtext,sizeof(encryptedtext),fptr);
+    
+    fclose(fptr);
 
     secrets(encryptedtext,openingpassword);
     //now we have converted the encrypted text back into the original text using the encryption decryption function
-    printf("%s",encryptedtext);
+    
+    printf("File Content:\n");
+    printf("%s\n",encryptedtext);
 }
 
 
@@ -133,11 +143,23 @@ void deletingfile(){
 //START for MENU Creation for the user
 
 int main (){
-    printf('\n welcome to our file locker');
-    printf("1.create and save the file \n");
-    printf("2.delete file\n");
-    printf("3.Exit \n");
+
+    while(1){
+        printf('\n welcome to our file locker');
+        printf("1.create and save the file \n");
+        printf("2.delete file\n");
+        printf("3.Exit \n");
     
+        int select;
+        scanf("%d",&select);
+        switch(select){
+            case 1: filecreation(); break;
+            case 2: fileopening(); break;
+            case 3: deletingfile(); break;
+            case 4: return 0;
+            default: printf("Invalid Input");
+        }
+    }
 }
 
 //END for MENU creation for the user
