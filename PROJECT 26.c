@@ -12,8 +12,16 @@ in loop using XOR operator and generate encrypted text...
 
 int secrets(char *text,char *password){    //we want text to be encrypted using password
     
-    int key=password[0];
+    //int key=password[0]; this was not valid because in this case if i select "xyz" as pass 
+    //and my content as " i am xyz", then while looping for encrption using XOR the program will
+    //while printing the output , fgets take this as the new line and skips the whole text...
 
+    int key =(password[0]%200)+30; //this type of Ascii value of pass will not 
+                                  //match any text in the letter...
+
+    if(key==0 ){//this is the correction 
+        key==1;//for an empty password...
+    }
 
     int i;
     //now loop and encrypt the text
@@ -69,8 +77,8 @@ void filecreation(){
     File *fptr=fopen(filename,"W");
     fprintf(fptr,"%s",text);
     fclose(fptr);
-    
-   
+    printf("File secured successfully.\n");
+    printf("Dont't forget the password.");
 }
 
 //END for File Creation Section
